@@ -7,11 +7,11 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 $(function(){
 	const swiper=new Swiper(".swiper-container", {
@@ -55,7 +55,13 @@ $(function(){
 					</div>
 					<div class="utils">
 						<div class="search"><a href=""><img src="images/header-search-icn2022.svg" alt="search-icon"></a></div>
-						<div class="language"><a href=""><img src="images/header-lang-icn2022.svg" alt="lang-icon"></a></div>
+						<div class="language">
+							<div class="icon"><a href=""><img src="images/header-lang-icn2022.svg" alt="lang-icon"></a></div>
+							<ul>
+								<li class="active"><a href="">KR</a></li>
+								<li><a href="">EN</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -553,7 +559,12 @@ $(function(){
 					</li>
 				</ul>
 			</div>
-			<div class="btn_wrapper"><a class="more_btn">MORE</a></div>
+			<div class="btn_wrapper">
+				<a href="" class="more_btn">
+					<span></span>
+					<em>MORE</em>
+				</a>
+			</div>
 		</div>
 	</section>
 	<footer id="footer">

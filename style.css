@@ -21,18 +21,30 @@ body {
 	font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
 
+
+#start {
+	margin: 0 auto;
+}
 /* header */
 #header {
-	margin: 0 auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+	background-color: #fff;
+	box-sizing: border-box;
 }
 #header .top {
 	display: flex;
-	padding: 30px 80px;
+	position: relative;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 4vw;
+	height: 90px;
 }
 #header .top .top_left {
 	display: flex;
+	height: 100%;
 	gap: 30px;
 }
 #header .top .top_left .logo {
@@ -50,7 +62,25 @@ body {
 #gnb ul {
 	display: flex;
 	align-items: center;
-	gap: 20px;
+	height: 100%;
+	gap: 30px;
+}
+#gnb ul li a {
+	position: relative;
+}
+#gnb ul li a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+	transform: scaleX(0);
+	transition: transform 0.3s;
+}
+#gnb ul li:hover a::after {
+	transform: scaleX(1);
 }
 #gnb ul li a {
 	display: block;
@@ -78,25 +108,63 @@ body {
 }
 .top_right .utils {
 	display: flex;
-	justify-content: center;
 	align-items: center;
 }
-.top_right .utils .search,
-.top_right .utils .language {
+.top_right .utils .search {
 	display: inline-block;
-	margin: 0 10px;
+	margin-right: 30px;
 	vertical-align: middle;
 }
-.top_right .utils .search img,
-.top_right .utils .language img {
+.top_right .utils .search img {
 	display: block;
+}
+.top_right .utils .language {
+	display: inline-flex;
+	height: 100%;
+	align-items: center;
+}
+.top_right .utils .language .icon img {
+	display: block;
+}
+.top_right .utils .language ul {
+	position: fixed;
+	text-align: right;
+	left: 0;
+	top: 90px;
+	width: 100%;
+	height: 0;
+	/* overflow: hidden; */
+}
+.top_right .utils .language ul li {
+	display: block;
+	align-items: center;
+	padding: 0 4vw;
+	line-height: 1.2;
+}
+.top_right .utils .language ul li:last-of-type {
+	margin-top: 10px;
+}
+.top_right .utils .language ul li a {
+	display: block;
+	font-weight: 600;
+	color: #888;
+}
+.top_right .utils .language ul li.active a {
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+	color: #000;
 }
 
 /* main slider */
 .main_slider {
+	position: relative;
 	margin: 0 auto;
-	padding: 50px 0 100px;
+	padding: 90px 0 100px;
 	max-width: 1440px;
+}
+.main_slider .title {
+	margin-top: 5vw;
 }
 .main_slider .title h2 {
 	margin-bottom: 10px;
@@ -259,7 +327,11 @@ body {
 
 /* banner */
 #banner {
+	position: relative;
 	margin-top: 10vw;
+	overflow: hidden;
+}
+#banner video {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -362,7 +434,7 @@ body {
 }
 #more_stories .inner {
 	margin: 0 auto;
-	padding: 100px 30px 300px;
+	padding: 100px 30px 100px;
 	max-width: 1440px;
 }
 #more_stories .title h2 {
@@ -417,6 +489,7 @@ body {
 	font-size: 0.75em;
 	color: #1d1d1d;
 }
+
 #more_stories .btn_wrapper {
 	text-align: center;
 }
@@ -427,38 +500,28 @@ body {
 }
 #more_stories .btn_wrapper .more_btn {
 	display: inline-block;
-	margin-top: 5vw;
+	margin-top: 8vw;
 	text-align: center;
-	line-height: 1.5;
-	font-size: 1.25em;
-	font-weight: 700;
-	z-index: 1000;
 }
-#more_stories .btn_wrapper .more_btn em {
-	font-style: normal;
-}
-
-
-/*
-#more_stories .btn_wrapper .more_btn::before {
+#more_stories .btn_wrapper .more_btn span::before {
 	content: "";
 	display: block;
-	position: absolute;
-	left: 50%;
-	bottom: 0;
+	margin: 0 auto;
 	width: 1px;
-	height: 50px;
-	z-index: 1000;
+	height: 30px;
 	background-color: #000;
-	transform: translateX(-50%);
 }
-*/
-
+#more_stories .btn_wrapper .more_btn em {
+	line-height: 3;
+	font-size: 1em;
+	font-weight: 700;
+	font-style: normal;
+}
 
 /* news */
 #news {
 	margin: 0 auto;
-	padding: 100px 0 300px;
+	padding: 100px 0 100px;
 	max-width: 1440px;
 }
 #news .title h2 {
@@ -514,15 +577,31 @@ body {
 	color: #1d1d1d;
 }
 #news .btn_wrapper {
-	align-items: center;
-	width: 100%;
-	height: 80px;
+	text-align: center;
+}
+#news .btn_wrapper a {
+	margin: 0 auto;
+	max-width: 1440px;
+	padding: 0 30px;
 }
 #news .btn_wrapper .more_btn {
-	display: block;
+	display: inline-block;
+	margin-top: 8vw;
 	text-align: center;
-	font-size: 1.25em;
+}
+#news .btn_wrapper .more_btn span::before {
+	content: "";
+	display: block;
+	margin: 0 auto;
+	width: 1px;
+	height: 30px;
+	background-color: #000;
+}
+#news .btn_wrapper .more_btn em {
+	line-height: 3;
+	font-size: 1em;
 	font-weight: 700;
+	font-style: normal;
 }
 
 /* footer */
